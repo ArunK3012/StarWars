@@ -48,4 +48,15 @@ export class ApiServiceService {
     return link;
   }
 
+  getName(data: any): Observable<any> {
+    // return this.http.get(`${data}`);
+    const url = `${data}`;
+    const fromCache = this.responseCache.get(url);
+    if (fromCache) {
+      return of(fromCache);
+    }
+    const link = this.http.get(url);
+    link.subscribe(name => this.responseCache.set(url, name));
+    return link;
+  }
 }

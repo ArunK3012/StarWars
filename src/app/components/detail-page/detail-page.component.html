@@ -1,9 +1,7 @@
-<!-- <app-character (getUrl)="displayItem($event)"></app-character> -->
-
 <div class="card">
     <div class="page">
         <div class="image">
-            <img src="../../../assets/yoda_starwars.png" alt="">
+            <img src="https://picsum.photos/200/300?grayscale" alt="">
         </div>
         <div *ngIf="navigationLink === 'films'" class="details">
             <h2>{{data.title | uppercase}}</h2>
@@ -11,11 +9,11 @@
             <p> <span> Opening Crawl : </span>  {{data.opening_crawl}} </p> 
             <p> <span>Producer :</span> {{data.producer}} </p> 
             <p> <span>Release Date :</span> {{data.release_date}} </p> 
-            <p> <span> Characters : </span> {{data.characters}} <br/> </p> 
-            <p> <span>Species :</span> {{data.species}} <br/> </p> 
-            <p> <span>Starships :</span> {{data.starships}} <br/> </p> 
-            <p> <span>Vehicles :</span> {{data.vehicles}} <br/></p> 
-            <p> <span>planets :</span> {{data.planets}} <br/> </p> 
+            <p> <span> Characters : </span> <span class="characterList" *ngFor = "let item of characterName">{{item}}&#x2c; </span> <br/> </p> 
+            <p> <span>Species :</span> <span class="characterList" *ngFor = "let item of speciesName">{{item}}&#x2c; </span> <br/> </p> 
+            <p> <span>Starships :</span> <span class="characterList" *ngFor = "let item of starshipsName">{{item}}&#x2c; </span> <br/> </p> 
+            <p> <span>Vehicles :</span> <span class="characterList" *ngFor = "let item of vehicleName">{{item}}&#x2c; </span> <br/></p> 
+            <p> <span>planets :</span> <span class="characterList" *ngFor = "let item of planetsName">{{item}}&#x2c; </span> <br/> </p> 
         </div>
         <div *ngIf="navigationLink === 'species'" class="details">
             <h2>{{data.name | uppercase}}</h2>
@@ -25,22 +23,21 @@
             <p> <span>Designation :</span> {{data.designation}} </p> 
             <p> <span>Eye Colors : </span> {{data.eye_colors}} <br/> </p> 
             <p> <span>Hair Colors :</span> {{data.hair_colors}} <br/> </p> 
-            <p> <span>Films :</span> {{data.films}} <br/> </p> 
-            <p> <span>Homeworld :</span> {{data.homeworld}} <br/></p> 
+            <p> <span>Films :</span> <span class="characterList" *ngFor = "let item of filmName">{{item}}&#x2c; </span> <br/> </p> 
+            <p> <span>Homeworld :</span> <span class="characterList">{{homeworldName}}&#x2c; </span> <br/></p> 
             <p> <span>Language :</span> {{data.language}} <br/> </p> 
-            <p> <span>People :</span> {{data.people}} <br/></p> 
+            <p> <span>People :</span> <span class="characterList" *ngFor = "let item of peopleName">{{item}}&#x2c; </span> <br/></p> 
             <p> <span>Skin Colors :</span> {{data.skin_colors}} <br/> </p>
         </div>
         <div *ngIf="navigationLink === 'planets'" class="details">
             <h2>{{data.name | uppercase}}</h2>
             <p> <span>Climate : </span> {{data.climate}} </p> 
             <p> <span>Diameter : </span> {{data.diameter}} </p> 
-            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Films :</span> <span class="characterList" *ngFor = "let item of filmName">{{item}}&#x2c; </span> <br/> </p> 
             <p> <span>Gravity :</span> {{data.gravity}} </p> 
             <p> <span>Orbital Period : </span> {{data.orbital_period}} <br/> </p> 
-            <p> <span>Hair Colors :</span> {{data.hair_colors}} <br/> </p> 
             <p> <span>Population :</span> {{data.population}} <br/> </p> 
-            <p> <span>Residents :</span> {{data.residents}} <br/></p> 
+            <p> <span>Residents :</span> <span class="characterList" *ngFor = "let item of residentsName">{{item}}&#x2c; </span> <br/></p> 
             <p> <span>Rotation Period :</span> {{data.rotation_period}} <br/> </p> 
             <p> <span>Surface Water :</span> {{data.surface_water}} <br/></p> 
             <p> <span>Terrain :</span> {{data.terrain}} <br/> </p>
@@ -49,23 +46,23 @@
             <h2>{{data.name | uppercase}}</h2>
             <p> <span>Birth Year :  </span> {{data.birth_year}}</p> 
             <p> <span>Eye Color :  </span> {{data.eye_color}} </p> 
-            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Films :</span> <span class="characterList" *ngFor = "let item of filmName">{{item}}&#x2c; </span> <br/> </p> 
             <p> <span>Gender :</span> {{data.gender}} </p> 
             <p> <span>Height :  </span> {{data.height}} <br/></p> 
-            <p> <span>Hair Colors :</span> {{data.hair_colors}} <br/> </p> 
-            <p> <span>Homeworld :</span> {{data.homeworld}} <br/> </p> 
+            <p> <span>Hair Colors :</span> {{data.hair_color}} <br/> </p> 
+            <p> <span>Homeworld :</span> <span class="characterList">{{homeworldName}}&#x2c; </span> <br/> </p> 
             <p> <span>mass :</span> {{data.mass}} <br/></p> 
-            <p> <span>Species :</span> {{data.species}} <br/> </p> 
+            <p> <span>Species :</span> <span class="characterList" *ngFor = "let item of speciesName">{{item}}&#x2c; </span> <br/> </p> 
             <p> <span>Skin Color :</span> {{data.skin_color}} <br/></p> 
-            <p> <span>Starships :</span> {{data.starships}} <br/> </p>
-            <p> <span>Vehicles :</span> {{data.vehicles}} <br/> </p>
+            <p> <span>Starships :</span> <span class="characterList" *ngFor = "let item of starshipsName">{{item}}&#x2c; </span> <br/> </p> 
+            <p> <span>Vehicles :</span> <span class="characterList" *ngFor = "let item of vehicleName">{{item}}&#x2c; </span> <br/></p> 
         </div>
         <div *ngIf="navigationLink === 'starships'" class="details">
             <h2>{{data.name | uppercase}}</h2>
             <p> <span>MGLT :  </span> {{data.MGLT}}</p> 
             <p> <span>Cargo Capacity :  </span> {{data.cargo_capacity}}</p> 
             <p> <span>Consumables :  </span> {{data.consumables}} </p> 
-            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Films :</span> <span class="characterList" *ngFor = "let item of filmName">{{item}}&#x2c; </span> <br/> </p> 
             <p> <span>Cost in Credits :</span> {{data.cost_in_credits}} </p> 
             <p> <span>Crew : </span>{{data.crew}} <br/> </p> 
             <p> <span>Hyperdrive Rating : </span> {{data.hyperdrive_rating}}</p> 
@@ -81,7 +78,7 @@
             <h2>{{data.name | uppercase}}</h2>
             <p>  <span> Cargo Capacity : </span> {{data.cargo_capacity}} </p> 
             <p>  <span> Consumables : </span>{{data.consumables}} </p> 
-            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Films :</span> <span class="characterList" *ngFor = "let item of filmName">{{item}}&#x2c; </span> <br/> </p> 
             <p> <span>Cost in Credits :</span> {{data.cost_in_credits}} </p> 
             <p> <span> Crew : </span> {{data.crew}} <br/> </p> 
             <p> <span>Length :</span> {{data.length}} <br/> </p> 
