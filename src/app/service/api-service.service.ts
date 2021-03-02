@@ -17,22 +17,23 @@ export class ApiServiceService {
 
   swapi(pageNo: number): Observable<any> {
 
-    const Params = new HttpParams({
-      fromObject: {
-        page: `${pageNo}`,
-      }
-    });
+    // const Params = new HttpParams({
+    //   fromObject: {
+    //     page: `${pageNo}`,
+    //   }
+    // });
 
-    return this.http.get(`${this.BASEURL}${this.urlLink}`, {params: Params});
+    // return this.http.get(`${this.BASEURL}${this.urlLink}`, {params: Params});
+    // console.log(`${this.BASEURL}${this.urlLink}${Params}`);
 
-    // const url = (`${this.BASEURL}${this.urlLink}?/${Params}`);
-    // const fromCache = this.responseCache.get(url);
-    // if (fromCache) {
-    //   return of(fromCache);
-    // }
-    // const link = this.http.get(url);
-    // link.subscribe(name => this.responseCache.set(url, name));
-    // return link;
+    const url = (`${this.BASEURL}${this.urlLink}/?page=${pageNo}`);
+    const fromCache = this.responseCache.get(url);
+    if (fromCache) {
+      return of(fromCache);
+    }
+    const link = this.http.get(url);
+    link.subscribe(name => this.responseCache.set(url, name));
+    return link;
   }
 
   getDetails(url: string): Observable<any> {

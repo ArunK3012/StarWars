@@ -1,6 +1,6 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiServiceService } from './../../service/api-service.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-character',
@@ -17,11 +17,8 @@ export class CharacterComponent implements OnInit {
   name = '';
   id: any;
 
-  // @Output() getUrl = new EventEmitter<string>();
-
   constructor(private service: ApiServiceService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.loadList(this.pageNo);

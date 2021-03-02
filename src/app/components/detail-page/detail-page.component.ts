@@ -24,7 +24,6 @@ export class DetailPageComponent implements OnInit {
       console.log(res);
       this.data = res;
     });
-
   }
 
 }
