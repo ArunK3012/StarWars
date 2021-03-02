@@ -85,7 +85,7 @@ export class DetailPageComponent implements OnInit {
       if (this.species !== undefined) {
         for (let i = 0; i < this.species.length; i++) {
           this.service.getName(this.species[i]).subscribe(response => {
-            this.speciesName.push(response.name);
+            this.speciesName.push(response.name + ',');
           });
         }
       }

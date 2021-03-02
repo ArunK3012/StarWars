@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 body {
-  background-size: cover;
+  background-size: 100% 100%;
   height: 125vh;
   width: 98.8vw;
   padding: 0;
@@ -158,6 +158,8 @@ body {
     position: relative;
     top: -10px;
     left: -8px;
+    background-size: cover;
+    background-position-x: center;
 
     .header {
       width: 92%;
