@@ -1,0 +1,14 @@
+<div class="dataList">
+    <div class="starList">
+        <div class="title" *ngFor="let item of data; let i = index">
+            <a routerLink="/header/details/{{navigation}}/{{i+1}}">
+                <button (click)="getDetails(item.url)" *ngIf="navigation !== 'films'">{{item.name | uppercase}}</button>
+                <button (click)="getDetails(item.url)" *ngIf="navigation === 'films'">{{item.title | uppercase}}</button>
+            </a>
+        </div>
+    </div>
+    <div class="navigate">
+        <button [disabled]="pageNo == 1" class="previous" (click)="paginate(-1)">PREVIOUS</button>
+        <button [disabled]="pageNo > pageCount" class="next" (click)="paginate(1)">NEXT</button>
+    </div>
+</div>

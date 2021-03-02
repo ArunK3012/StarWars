@@ -1,0 +1,96 @@
+<!-- <app-character (getUrl)="displayItem($event)"></app-character> -->
+
+<div class="card">
+    <div class="page">
+        <div class="image">
+            <img src="../../../assets/yoda_starwars.png" alt="">
+        </div>
+        <div *ngIf="navigationLink === 'films'" class="details">
+            <h2>{{data.title | uppercase}}</h2>
+            <p> <span> Director : </span>{{data.director}} </p> 
+            <p> <span> Opening Crawl : </span>  {{data.opening_crawl}} </p> 
+            <p> <span>Producer :</span> {{data.producer}} </p> 
+            <p> <span>Release Date :</span> {{data.release_date}} </p> 
+            <p> <span> Characters : </span> {{data.characters}} <br/> </p> 
+            <p> <span>Species :</span> {{data.species}} <br/> </p> 
+            <p> <span>Starships :</span> {{data.starships}} <br/> </p> 
+            <p> <span>Vehicles :</span> {{data.vehicles}} <br/></p> 
+            <p> <span>planets :</span> {{data.planets}} <br/> </p> 
+        </div>
+        <div *ngIf="navigationLink === 'species'" class="details">
+            <h2>{{data.name | uppercase}}</h2>
+            <p> <span>Classification : </span> {{data.classification}}</p> 
+            <p> <span>Average Height : </span> {{data.average_height}}</p> 
+            <p> <span>Average Lifespan :</span> {{data.average_lifespan}} </p> 
+            <p> <span>Designation :</span> {{data.designation}} </p> 
+            <p> <span>Eye Colors : </span> {{data.eye_colors}} <br/> </p> 
+            <p> <span>Hair Colors :</span> {{data.hair_colors}} <br/> </p> 
+            <p> <span>Films :</span> {{data.films}} <br/> </p> 
+            <p> <span>Homeworld :</span> {{data.homeworld}} <br/></p> 
+            <p> <span>Language :</span> {{data.language}} <br/> </p> 
+            <p> <span>People :</span> {{data.people}} <br/></p> 
+            <p> <span>Skin Colors :</span> {{data.skin_colors}} <br/> </p>
+        </div>
+        <div *ngIf="navigationLink === 'planets'" class="details">
+            <h2>{{data.name | uppercase}}</h2>
+            <p> <span>Climate : </span> {{data.climate}} </p> 
+            <p> <span>Diameter : </span> {{data.diameter}} </p> 
+            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Gravity :</span> {{data.gravity}} </p> 
+            <p> <span>Orbital Period : </span> {{data.orbital_period}} <br/> </p> 
+            <p> <span>Hair Colors :</span> {{data.hair_colors}} <br/> </p> 
+            <p> <span>Population :</span> {{data.population}} <br/> </p> 
+            <p> <span>Residents :</span> {{data.residents}} <br/></p> 
+            <p> <span>Rotation Period :</span> {{data.rotation_period}} <br/> </p> 
+            <p> <span>Surface Water :</span> {{data.surface_water}} <br/></p> 
+            <p> <span>Terrain :</span> {{data.terrain}} <br/> </p>
+        </div>
+        <div *ngIf="navigationLink === 'people'" class="details">
+            <h2>{{data.name | uppercase}}</h2>
+            <p> <span>Birth Year :  </span> {{data.birth_year}}</p> 
+            <p> <span>Eye Color :  </span> {{data.eye_color}} </p> 
+            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Gender :</span> {{data.gender}} </p> 
+            <p> <span>Height :  </span> {{data.height}} <br/></p> 
+            <p> <span>Hair Colors :</span> {{data.hair_colors}} <br/> </p> 
+            <p> <span>Homeworld :</span> {{data.homeworld}} <br/> </p> 
+            <p> <span>mass :</span> {{data.mass}} <br/></p> 
+            <p> <span>Species :</span> {{data.species}} <br/> </p> 
+            <p> <span>Skin Color :</span> {{data.skin_color}} <br/></p> 
+            <p> <span>Starships :</span> {{data.starships}} <br/> </p>
+            <p> <span>Vehicles :</span> {{data.vehicles}} <br/> </p>
+        </div>
+        <div *ngIf="navigationLink === 'starships'" class="details">
+            <h2>{{data.name | uppercase}}</h2>
+            <p> <span>MGLT :  </span> {{data.MGLT}}</p> 
+            <p> <span>Cargo Capacity :  </span> {{data.cargo_capacity}}</p> 
+            <p> <span>Consumables :  </span> {{data.consumables}} </p> 
+            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Cost in Credits :</span> {{data.cost_in_credits}} </p> 
+            <p> <span>Crew : </span>{{data.crew}} <br/> </p> 
+            <p> <span>Hyperdrive Rating : </span> {{data.hyperdrive_rating}}</p> 
+            <p> <span>Length :</span> {{data.length}} <br/> </p> 
+            <p> <span>Manufacturer :</span> {{data.manufacturer}} <br/> </p> 
+            <p> <span>Max Atmosphering Speed :</span> {{data.max_atmosphering_speed}} <br/></p> 
+            <p> <span>Model :</span> {{data.model}} <br/> </p> 
+            <p> <span>Passengers :</span> {{data.passengers}} <br/></p> 
+            <p> <span>Pilots :</span> {{data.pilots}} <br/> </p>
+            <p> <span>Starship Class :</span> {{data.starship_class}} <br/> </p>
+        </div>
+        <div *ngIf="navigationLink === 'vehicles'" class="details">
+            <h2>{{data.name | uppercase}}</h2>
+            <p>  <span> Cargo Capacity : </span> {{data.cargo_capacity}} </p> 
+            <p>  <span> Consumables : </span>{{data.consumables}} </p> 
+            <p> <span>Films :</span> {{data.films}} </p> 
+            <p> <span>Cost in Credits :</span> {{data.cost_in_credits}} </p> 
+            <p> <span> Crew : </span> {{data.crew}} <br/> </p> 
+            <p> <span>Length :</span> {{data.length}} <br/> </p> 
+            <p> <span>Manufacturer :</span> {{data.manufacturer}} <br/> </p> 
+            <p> <span>Max Atmosphering Speed :</span> {{data.max_atmosphering_speed}} <br/></p> 
+            <p> <span>Model :</span> {{data.model}} <br/> </p> 
+            <p> <span>Passengers :</span> {{data.passengers}} <br/></p> 
+            <p> <span>Pilots :</span> {{data.pilots}} <br/> </p>
+            <p> <span>Vehicle Class :</span> {{data.vehicle_class}} <br/> </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<body>
+    <div class="header">
+        <img class="logo" src="../../../assets/logo.png" alt="">
+    </div>
+    <div class="header-body">
+        <div *ngIf="homeScreen" class="list">
+            <button routerLink="/header/films" routerLinkActive="active" class="films">FILMS</button>
+            <button routerLink="/header/species" routerLinkActive="active" class="species">SPECIES</button>
+            <button routerLink="/header/planets" routerLinkActive="active" class="planets">PLANETS</button>
+            <button routerLink="/header/people" routerLinkActive="active" class="characters">CHARACTERS</button>
+            <button routerLink="/header/starships" routerLinkActive="active" class="starships">STARSHIPS</button>
+            <button routerLink="/header/vehicles" routerLinkActive="active" class="vehicles">VEHICLES</button>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="header-footer">
+        <div class="conditions">
+            <img class="logoFooter" src="../../../assets/footer_logo.png" alt="">
+            <button class="terms">TERMS OF USE</button>
+            <button class="notices">LEGAL NOTICES</button>
+            <button class="policy">PRIVACY POLICY</button>
+            <button class="helpDesk">STAR WARS HELPDESK</button>
+            <button class="desk">HELPDESK</button>
+            <button class="disneyStore">STAR WARS AT DISNEY STORE</button>
+        </div>
+        <p class="lucasFilm">TM & &#169; Lucasfilm Ltd. All Rights Reserved</p>
+    </div>
+</body>

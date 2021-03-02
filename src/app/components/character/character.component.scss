@@ -1,0 +1,117 @@
+@import '../../variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.dataList {
+  text-align: center;
+  height: 29rem;
+  margin-top: 2%;
+  font-family: "Open Sans", sans-serif;
+
+  .starList {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 82%;
+
+    .title {
+      margin-top: 1%;
+      height: 7.6%;
+
+      button {
+        width: 36%;
+        height: 100%;
+        background: none;
+        border: none;
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+
+        &:focus,
+        &:hover {
+          background-color: $bg-color;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .navigate {
+    height: 10%;
+    margin-top: 2%;
+    font-weight: 400;
+
+    button {
+      background-color: #044C74;
+      border: none;
+      height: 70%;
+      color: white;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .previous {
+      position: relative;
+      left: -1%;
+      width: 18%;
+    }
+
+    .next {
+      width: 16%;
+      position: relative;
+      left: 1%;
+    }
+
+
+    :disabled {
+      color: #7792A9;
+    }
+  }
+}
+
+.starList::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+
+  .dataList {
+    height: 16rem;
+
+    .starList {
+      height: 100%;
+      margin-top: 2%;
+
+      .title {
+        margin-top: 2%;
+        height: 18%;
+
+        button {
+          font-size: 17px;
+          width: 75%;
+          font-weight: 600;
+          height: 100%;
+        }
+      }
+    }
+
+    .navigate {
+      margin: 0;
+      position: relative;
+      height: 18%;
+      top: 3%;
+
+      .previous {
+        left: -3%;
+        width: 32%;
+        height: 85%;
+      }
+
+      .next {
+        width: 28%;
+        height: 85%;
+        left: 2%;
+      }
+    }
+  }
+}

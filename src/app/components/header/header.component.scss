@@ -1,0 +1,232 @@
+@import '../../variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+body {
+  background-size: cover;
+  height: 125vh;
+  width: 98.8vw;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background-image: url('../../../assets/background.png');
+  position: relative;
+  top: -9px;
+  left: -9px;
+
+  .header {
+    position: relative;
+    margin-left: 12rem;
+    border-bottom: 1px solid #1B6BA2;
+    width: calc(100vw - 27rem);
+    text-align: center;
+    top: 2rem;
+
+    .logo {
+      width: 28%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .header-body {
+    position: relative;
+    top: 2rem;
+    margin-left: 12rem;
+    width: calc(100vw - 27rem);
+    height: 32rem;
+
+    .list {
+      height: 2.5rem;
+      border-bottom: 1px solid #0E7ED0;
+      width: calc(100vw - 27rem);
+      display: inline-flex;
+      overflow-y: hidden;
+      overflow-x: auto;
+      font-weight: 600;
+
+      button {
+        background: none;
+        border: none;
+        color: white;
+        height: 2.5rem;
+
+        &:focus,
+        &:hover {
+          background-color: $bg-color;
+          color: white;
+          outline: none;
+        }
+      }
+
+      .films {
+        margin-left: 1.5rem;
+        width: 8rem;
+      }
+
+      .species {
+        width: 8rem;
+      }
+
+      .planets {
+        width: 8rem;
+      }
+
+      .characters {
+        width: 10rem;
+      }
+
+      .starships {
+        width: 10rem;
+      }
+
+      .vehicles {
+        width: 10rem;
+      }
+    }
+  }
+
+  .header-footer {
+    position: relative;
+    border-top: 1px solid #054979;
+    width: 100%;
+    top: 2.3rem;
+
+    .conditions {
+      position: relative;
+      margin-left: 12rem;
+      width: calc(100vw - 27rem);
+      top: 1.5rem;
+      height: 5rem;
+      display: inline-flex;
+      font-weight: 600;
+
+      .logoFooter {
+        height: 2.4rem;
+      }
+
+      button {
+        border: none;
+        background-color: #fff0;
+        color: #1B6BA2;
+        font-size: 11px;
+        height: 2.4rem;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .terms {
+        width: 20%;
+      }
+
+      .notices {
+        width: 20.5%;
+      }
+
+      .policy {
+        width: 20.5%;
+      }
+
+      .helpDesk {
+        width: 26%;
+      }
+
+      .desk {
+        display: none;
+      }
+
+      .disneyStore {
+        width: 26%;
+      }
+    }
+
+    .lucasFilm {
+      text-align: center;
+      color: #49586B;
+      font-size: 13px;
+      position: relative;
+      top: -1rem;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  body {
+    height: 100vh;
+    position: relative;
+    top: -10px;
+    left: -8px;
+
+    .header {
+      width: 92%;
+      margin-left: 4%;
+    }
+
+    .header-body {
+      width: 100%;
+      margin: 0;
+
+      .list {
+        width: 92%;
+        margin-left: 4%;
+
+        .films {
+          margin: 0;
+        }
+      }
+    }
+
+    .header-footer {
+      height: 9rem;
+      width: 92%;
+      margin-left: 4%;
+      top: -15%;
+
+      .conditions {
+        margin: 0 0 0 -4%;
+        width: 108%;
+        display: block;
+        height: 10rem;
+        background-color: #010204;
+
+        .logoFooter {
+          display: none;
+        }
+
+        .terms {
+          width: 31%;
+          margin-left: 1%;
+        }
+
+        .notices {
+          width: 32%;
+        }
+
+        .policy {
+          width: 36%;
+        }
+
+        .helpDesk {
+          display: none;
+        }
+
+        .desk {
+          display: initial;
+          width: 28%;
+          margin: 0;
+          margin-left: 7%;
+        }
+
+        .disneyStore {
+          width: 56%;
+        }
+      }
+
+      .lucasFilm {
+        top: -3.5rem;
+      }
+    }
+  }
+}
