@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPageComponent implements OnInit {
 
-  data: any;
+  data: any = [];
   name = '';
   characters = [];
   films = [];
@@ -36,9 +36,10 @@ export class DetailPageComponent implements OnInit {
     this.navigationLink = this.service.urlLink;
 
     const url = this.service.detailsId;
-
     this.service.getDetails(url).subscribe(res => {
       console.log(res);
+      this.service.detailsResponse.push(res);
+      localStorage.setItem('detailsResponse', JSON.stringify(this.service.detailsResponse));
       this.data = res;
       this.characters = res.characters;
       this.people = res.people;
@@ -52,21 +53,36 @@ export class DetailPageComponent implements OnInit {
       if (this.characters !== undefined) {
         for (let i = 0; i < this.characters.length; i++) {
           this.service.getName(this.characters[i]).subscribe(response => {
-            this.characterName.push(response.name);
+            if (i !== this.characters.length - 1) {
+              this.characterName.push(response.name + ',');
+            }
+            if (i === this.characters.length - 1) {
+              this.characterName.push(response.name + '.');
+            }
           });
         }
       }
       if (this.people !== undefined) {
         for (let i = 0; i < this.people.length; i++) {
           this.service.getName(this.people[i]).subscribe(response => {
-            this.peopleName.push(response.name);
+            if (i !== this.people.length - 1) {
+              this.peopleName.push(response.name + ',');
+            }
+            if (i === this.people.length - 1) {
+              this.peopleName.push(response.name + '.');
+            }
           });
         }
       }
       if (this.residents !== undefined) {
         for (let i = 0; i < this.residents.length; i++) {
           this.service.getName(this.residents[i]).subscribe(response => {
-            this.residentsName.push(response.name);
+            if (i !== this.residents.length - 1) {
+              this.residentsName.push(response.name + ',');
+            }
+            if (i === this.residents.length - 1) {
+              this.residentsName.push(response.name + '.');
+            }
           });
         }
       }
@@ -78,35 +94,60 @@ export class DetailPageComponent implements OnInit {
       if (this.films !== undefined) {
         for (let i = 0; i < this.films.length; i++) {
           this.service.getName(this.films[i]).subscribe(response => {
-            this.filmName.push(response.title);
+            if (i !== this.films.length - 1) {
+              this.filmName.push(response.title + ',');
+            }
+            if (i === this.films.length - 1) {
+              this.filmName.push(response.title + '.');
+            }
           });
         }
       }
       if (this.species !== undefined) {
         for (let i = 0; i < this.species.length; i++) {
           this.service.getName(this.species[i]).subscribe(response => {
-            this.speciesName.push(response.name + ',');
+            if (i < this.species.length - 1) {
+              this.speciesName.push(response.name + ',');
+            }
+            if (i === this.species.length - 1) {
+              this.speciesName.push(response.name + '.');
+            }
           });
         }
       }
       if (this.planets !== undefined) {
         for (let i = 0; i < this.planets.length; i++) {
           this.service.getName(this.planets[i]).subscribe(response => {
-            this.planetsName.push(response.name);
+            if (i !== this.planets.length - 1) {
+              this.planetsName.push(response.name + ',');
+            }
+            if (i === this.planets.length - 1) {
+              this.planetsName.push(response.name + '.');
+            }
           });
         }
       }
       if (this.starships !== undefined) {
         for (let i = 0; i < this.starships.length; i++) {
           this.service.getName(this.starships[i]).subscribe(response => {
-            this.starshipsName.push(response.name);
+            if (i !== this.starships.length - 1) {
+              this.starshipsName.push(response.name + ',');
+            }
+            if (i === this.starships.length - 1) {
+              this.starshipsName.push(response.name + '.');
+            }
           });
         }
       }
       if (this.vehicles !== undefined) {
         for (let i = 0; i < this.vehicles.length; i++) {
           this.service.getName(this.vehicles[i]).subscribe(response => {
-            this.vehicleName.push(response.name);
+            if (i !== this.vehicles.length - 1) {
+              this.vehicleName.push(response.name + ',');
+            }
+            if (i === this.vehicles.length - 1) {
+              this.vehicleName.push(response.name + '.');
+            }
           });
         }
       }

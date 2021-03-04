@@ -1,7 +1,7 @@
 <div class="dataList">
     <div class="starList">
         <div class="title" *ngFor="let item of data; let i = index">
-            <a routerLink="/header/details/{{navigation}}/{{i+1}}">
+            <a routerLink="/header/{{navigation}}/details/{{i}}">
                 <button (click)="getDetails(item.url)" *ngIf="navigation !== 'films'">{{item.name | uppercase}}</button>
                 <button (click)="getDetails(item.url)" *ngIf="navigation === 'films'">{{item.title | uppercase}}</button>
             </a>

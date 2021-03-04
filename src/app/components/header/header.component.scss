@@ -15,9 +15,10 @@ body {
 
   .header {
     position: relative;
-    margin-left: 12rem;
+    margin-left: 15%;
     border-bottom: 1px solid #1B6BA2;
-    width: calc(100vw - 27rem);
+    // width: calc(100vw - 27rem);
+    width: 65%;
     text-align: center;
     top: 2rem;
 
@@ -30,14 +31,16 @@ body {
   .header-body {
     position: relative;
     top: 2rem;
-    margin-left: 12rem;
-    width: calc(100vw - 27rem);
+    margin-left: 15%;
+    // width: calc(100vw - 27rem);
+    width: 85%;
     height: 32rem;
 
     .list {
       height: 2.5rem;
       border-bottom: 1px solid #0E7ED0;
-      width: calc(100vw - 27rem);
+      // width: calc(100vw - 27rem);
+      width: 76.5%;
       display: inline-flex;
       overflow-y: hidden;
       overflow-x: auto;
@@ -49,8 +52,12 @@ body {
         color: white;
         height: 2.5rem;
 
-        &:focus,
-        &:hover {
+        &:focus{
+          outline: none;
+        }
+
+        &:hover,
+        &.active {
           background-color: $bg-color;
           color: white;
           outline: none;
@@ -59,23 +66,23 @@ body {
 
       .films {
         margin-left: 1.5rem;
-        width: 8rem;
+        width: 7.5rem;
       }
 
       .species {
-        width: 8rem;
+        width: 7.5rem;
       }
 
       .planets {
-        width: 8rem;
+        width: 7.5rem;
       }
 
       .characters {
-        width: 10rem;
+        width: 9.5rem;
       }
 
       .starships {
-        width: 10rem;
+        width: 9.5rem;
       }
 
       .vehicles {
@@ -92,8 +99,8 @@ body {
 
     .conditions {
       position: relative;
-      margin-left: 12rem;
-      width: calc(100vw - 27rem);
+      margin-left: 15%;
+      width: 70%;
       top: 1.5rem;
       height: 5rem;
       display: inline-flex;
@@ -103,40 +110,45 @@ body {
         height: 2.4rem;
       }
 
-      button {
-        border: none;
-        background-color: #fff0;
-        color: #1B6BA2;
-        font-size: 11px;
-        height: 2.4rem;
+      .btns {
+        width: 100%;
+        display: block;
 
-        &:focus {
-          outline: none;
+        button {
+          border: none;
+          background-color: #fff0;
+          color: #1B6BA2;
+          font-size: 11px;
+          height: 2.4rem;
+
+          &:focus {
+            outline: none;
+          }
         }
-      }
 
-      .terms {
-        width: 20%;
-      }
+        .terms {
+          width: 16%;
+        }
 
-      .notices {
-        width: 20.5%;
-      }
+        .notices {
+          width: 18%;
+        }
 
-      .policy {
-        width: 20.5%;
-      }
+        .policy {
+          width: 18%;
+        }
 
-      .helpDesk {
-        width: 26%;
-      }
+        .helpDesk {
+          width: 20%;
+        }
 
-      .desk {
-        display: none;
-      }
+        .desk {
+          display: none;
+        }
 
-      .disneyStore {
-        width: 26%;
+        .disneyStore {
+          width: 25%;
+        }
       }
     }
 
@@ -151,7 +163,38 @@ body {
   }
 }
 
-@media screen and (max-width: 400px) {
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position-x: center;
+
+    .header-footer {
+      font-size: 9px;
+
+      .logoFooter {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+
+    .header-footer {
+
+      .lucasFilm {
+        top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
 
   body {
     height: 100vh;
@@ -197,32 +240,35 @@ body {
           display: none;
         }
 
-        .terms {
-          width: 31%;
-          margin-left: 1%;
-        }
+        .btns {
 
-        .notices {
-          width: 32%;
-        }
+          .terms {
+            width: 31%;
+            margin-left: 1%;
+          }
 
-        .policy {
-          width: 36%;
-        }
+          .notices {
+            width: 32%;
+          }
 
-        .helpDesk {
-          display: none;
-        }
+          .policy {
+            width: 36%;
+          }
 
-        .desk {
-          display: initial;
-          width: 28%;
-          margin: 0;
-          margin-left: 7%;
-        }
+          .helpDesk {
+            display: none;
+          }
 
-        .disneyStore {
-          width: 56%;
+          .desk {
+            display: initial;
+            width: 28%;
+            margin: 0;
+            margin-left: 7%;
+          }
+
+          .disneyStore {
+            width: 56%;
+          }
         }
       }
 

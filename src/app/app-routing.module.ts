@@ -19,12 +19,12 @@ const routes: Routes = [
       { path: 'people', component: CharacterComponent},
       { path: 'starships', component: CharacterComponent},
       { path: 'vehicles', component: CharacterComponent},
-      { path: 'details/films/:id', component: DetailPageComponent},
-      { path: 'details/species/:id', component: DetailPageComponent},
-      { path: 'details/planets/:id', component: DetailPageComponent},
-      { path: 'details/people/:id', component: DetailPageComponent},
-      { path: 'details/starships/:id', component: DetailPageComponent},
-      { path: 'details/vehicles/:id', component: DetailPageComponent},
+      { path: 'films/details/:id', component: DetailPageComponent},
+      { path: 'species/details/:id', component: DetailPageComponent},
+      { path: 'planets/details/:id', component: DetailPageComponent},
+      { path: 'people/details/:id', component: DetailPageComponent},
+      { path: 'starships/details/:id', component: DetailPageComponent},
+      { path: 'vehicles/details/:id', component: DetailPageComponent},
     ]
   }
 ];

@@ -6,6 +6,7 @@
   height: 29rem;
   margin-top: 2%;
   font-family: "Open Sans", sans-serif;
+  width: 76.5%;
 
   .starList {
     overflow-x: hidden;
@@ -44,6 +45,7 @@
       border: none;
       height: 70%;
       color: white;
+      width: 8em;
 
       &:focus {
         outline: none;
@@ -53,11 +55,11 @@
     .previous {
       position: relative;
       left: -1%;
-      width: 18%;
+      // width: 18%;
     }
 
     .next {
-      width: 16%;
+      // width: 16%;
       position: relative;
       left: 1%;
     }
@@ -73,10 +75,51 @@
   display: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 920px) {
 
   .dataList {
-    height: 16rem;
+
+    .starList {
+
+      .title {
+        height: 10%;
+
+        button {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .dataList {
+
+    .starList {
+
+      .title {
+        height: 13%;
+
+        button {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .navigate {
+      font-size: 11px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  .dataList {
+    height: 17rem;
+    width: 100%;
 
     .starList {
       height: 100%;
@@ -84,13 +127,13 @@
 
       .title {
         margin-top: 2%;
-        height: 18%;
+        height: 14%;
 
         button {
           font-size: 17px;
           width: 75%;
           font-weight: 600;
-          height: 100%;
+          margin: 0;
         }
       }
     }
@@ -98,18 +141,16 @@
     .navigate {
       margin: 0;
       position: relative;
-      height: 18%;
+      height: 17%;
       top: 3%;
 
       .previous {
         left: -3%;
-        width: 32%;
-        height: 85%;
+        width: 25%;
       }
 
       .next {
         width: 28%;
-        height: 85%;
         left: 2%;
       }
     }

@@ -10,23 +10,27 @@ export class ApiServiceService {
   BASEURL = 'https://swapi.dev/api/';
   urlLink: any;
   detailsId: any;
+  page = 1;
+  apiResponse: any = [];
+  detailsResponse: any = [];
+  charPage = 1;
+  speciesPage = 1;
+  planetsPage = 1;
+  starshipsPage = 1;
+  vehiclesPage = 1;
+  storage: any = [];
+  link: any = [];
+  charResponse: any = [];
+  speicesResponse: any = [];
 
   public responseCache = new Map();
 
   constructor(private http: HttpClient) { }
 
-  swapi(pageNo: number): Observable<any> {
+  swapi(data: any, pageNo: number): Observable<any> {
 
-    // const Params = new HttpParams({
-    //   fromObject: {
-    //     page: `${pageNo}`,
-    //   }
-    // });
+    const url = (`${this.BASEURL}${data}/?page=${pageNo}`);
 
-    // return this.http.get(`${this.BASEURL}${this.urlLink}`, {params: Params});
-    // console.log(`${this.BASEURL}${this.urlLink}${Params}`);
-
-    const url = (`${this.BASEURL}${this.urlLink}/?page=${pageNo}`);
     const fromCache = this.responseCache.get(url);
     if (fromCache) {
       return of(fromCache);
@@ -37,7 +41,9 @@ export class ApiServiceService {
   }
 
   getDetails(url: string): Observable<any> {
+
     // return this.http.get(`${url}`);
+
     const id = `${url}`;
     const fromCache = this.responseCache.get(id);
     if (fromCache) {

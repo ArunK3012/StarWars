@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from './../../service/api-service.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +9,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input()
+  routerLinkActiveOptions = {
+    exact: true,
+  };
+
   homeScreen = false;
-  constructor(private router: Router) { }
+  link = '';
+  backgroundColor = '';
+  page = 1;
+
+  constructor(private router: Router,
+              private service: ApiServiceService) { }
 
   ngOnInit(): void {
     const url = this.router.url.split('/').pop();

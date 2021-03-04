@@ -7,28 +7,31 @@
     height: 80%;
     top: 3rem;
     position: relative;
-    margin-left: 22%;
-    width: calc(68.4vw - 24rem);
+    // margin-left: 16%;
+    width: 76.5%;
     display: block;
+    text-align: center;
 
     button {
-      height: 50%;
+      height: 37%;
       background: none;
       border: none;
-      width: 33%;
+      width: 27%;
+      margin-bottom: 4rem;
 
       img {
-        width: 70%;
-        height: 70%;
+        width: 65%;
+        height: 85%;
         display: flex;
         position: relative;
-        left: 13%;
+        // left: 13%;
+        margin: auto;
       }
 
       .active {
         display: none;
-        width: 70%;
-        height: 70%;
+        // width: 70%;
+        // height: 87%;
         position: relative;
         top: -70%;
       }
@@ -45,7 +48,7 @@
         .active {
           display: flex;
           position: relative;
-          left: 13%;
+          // left: 13%;
           top: -1%;
         }
       }
@@ -59,7 +62,43 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 920px) {
+  .home {
+
+    .contents {
+
+      button {
+
+        img {
+          height: 82%;
+          width: 77%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .home {
+
+    .contents {
+      // margin-left: 11%;
+
+      button {
+        width: 35%;
+        height: 27%;
+        margin-bottom: 1rem;
+
+        img {
+          height: 85%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
 
   .home {
 
@@ -70,19 +109,21 @@
       height: 22rem;
 
       button {
-        width: 50%;
-        height: 33%;
-        margin-bottom: 1%;
+        width: 45%;
+        height: 31%;
+        margin: 0;
+        margin-bottom: 2%;
 
         img {
           width: 50%;
-          left: 24%;
+          // left: 24%;
         }
 
-        &:focus{
-          .active{
+        &:hover,
+        &:focus {
+          .active {
             width: 50%;
-            left: 24%;
+            // left: 24%;
           }
         }
       }

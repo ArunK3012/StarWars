@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 .card {
-  width: 100%;
+  width: 76.5%;
   height: 23rem;
   position: relative;
   top: 10%;
@@ -48,12 +48,12 @@
         overflow-wrap: break-word;
         font-weight: 600;
 
-        span{
+        span {
           color: #A5C1D3;
           font-weight: 400;
         }
 
-        .characterList{
+        .characterList {
           color: white;
           font-weight: 600;
         }
@@ -76,12 +76,51 @@
   background-color: #00A8FF;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 920px) {
+
+  .card {
+
+    .page {
+
+      .image {
+
+        img {
+          height: 85%;
+          position: relative;
+          top: 9%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .card {
+
+    .page {
+
+      .image {
+
+        img {
+          height: 70%;
+          top: 17%;
+        }
+      }
+      .details{
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
 
   .card {
     top: 0;
     height: 21.5rem;
     background: none;
+    width: 97%;
 
     .page {
       top: 6%;
@@ -89,7 +128,7 @@
       height: 94%;
 
       .image {
-        width: 80%;
+        width: 65%;
         height: 50%;
         text-align: center;
 
@@ -99,8 +138,8 @@
       }
 
       .details {
-        height: 47%;
-        width: 79%;
+        height: 43%;
+        width: 65%;
 
         h2 {
           font-size: 20px;
