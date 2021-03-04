@@ -30,7 +30,8 @@ export class DetailPageComponent implements OnInit {
   homeworldName: any = [];
   residentsName: any = [];
 
-  constructor(private service: ApiServiceService) { }
+  constructor(private service: ApiServiceService) {
+  }
 
   ngOnInit(): void {
     this.navigationLink = this.service.urlLink;
@@ -87,9 +88,9 @@ export class DetailPageComponent implements OnInit {
         }
       }
       if (this.homeworld !== undefined) {
-          this.service.getName(this.homeworld).subscribe(response => {
-            this.homeworldName = (response.name);
-          });
+        this.service.getName(this.homeworld).subscribe(response => {
+          this.homeworldName = (response.name);
+        });
       }
       if (this.films !== undefined) {
         for (let i = 0; i < this.films.length; i++) {

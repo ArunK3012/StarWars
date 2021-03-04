@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,13 @@ export class ApiServiceService {
   link: any = [];
   charResponse: any = [];
   speicesResponse: any = [];
+  vehicleResposne: any = [];
+  planetsResponse: any = [];
+  filmResponse: any = [];
+  starshipResponse: any = [];
+  details: any = [];
+  results: any = [];
+  temp: any = [];
 
   public responseCache = new Map();
 
@@ -31,6 +38,20 @@ export class ApiServiceService {
 
     const url = (`${this.BASEURL}${data}/?page=${pageNo}`);
 
+  //   const storage = JSON.parse(localStorage.getItem(`${data}`) || 'null');
+  //   if (storage !== null) {
+  //     for (const i = 1 ; i < storage.length; i + 2) {
+  //       if (storage[i] === url) {
+  //         return of(storage[i - 1]);
+  //       }
+  //     }
+  //   }
+  //   const link = this.http.get(url);
+  //   link.subscribe(name => {
+  //     this.temp.push(name, url);
+  //     localStorage.setItem(`${data}`, JSON.stringify(this.temp));
+  // });
+  //   return link;
     const fromCache = this.responseCache.get(url);
     if (fromCache) {
       return of(fromCache);
