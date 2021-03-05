@@ -9,6 +9,6 @@
     </div>
     <div class="navigate">
         <button [disabled]="pageNo == 1" class="previous" (click)="paginate(-1)">PREVIOUS</button>
-        <button [disabled]="pageNo > pageCount" class="next" (click)="paginate(1)">NEXT</button>
+        <button [disabled]="pageNo >= pageCount" class="next" (click)="paginate(1)">NEXT</button>
     </div>
 </div>

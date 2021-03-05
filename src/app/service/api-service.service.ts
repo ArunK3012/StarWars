@@ -38,52 +38,18 @@ export class ApiServiceService {
 
     const url = (`${this.BASEURL}${data}/?page=${pageNo}`);
 
-  //   const storage = JSON.parse(localStorage.getItem(`${data}`) || 'null');
-  //   if (storage !== null) {
-  //     for (const i = 1 ; i < storage.length; i + 2) {
-  //       if (storage[i] === url) {
-  //         return of(storage[i - 1]);
-  //       }
-  //     }
-  //   }
-  //   const link = this.http.get(url);
-  //   link.subscribe(name => {
-  //     this.temp.push(name, url);
-  //     localStorage.setItem(`${data}`, JSON.stringify(this.temp));
-  // });
-  //   return link;
-    const fromCache = this.responseCache.get(url);
-    if (fromCache) {
-      return of(fromCache);
-    }
-    const link = this.http.get(url);
-    link.subscribe(name => this.responseCache.set(url, name));
-    return link;
+    return this.http.get(url);
+
   }
 
   getDetails(url: string): Observable<any> {
 
-    // return this.http.get(`${url}`);
-
-    const id = `${url}`;
-    const fromCache = this.responseCache.get(id);
-    if (fromCache) {
-      return of(fromCache);
-    }
-    const link = this.http.get(id);
-    link.subscribe(name => this.responseCache.set(id, name));
-    return link;
+    return this.http.get(`${url}`);
   }
 
   getName(data: any): Observable<any> {
-    // return this.http.get(`${data}`);
-    const url = `${data}`;
-    const fromCache = this.responseCache.get(url);
-    if (fromCache) {
-      return of(fromCache);
-    }
-    const link = this.http.get(url);
-    link.subscribe(name => this.responseCache.set(url, name));
-    return link;
+
+    return this.http.get(`${data}`);
+
   }
 }

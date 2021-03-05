@@ -37,6 +37,7 @@ export class DetailPageComponent implements OnInit {
     this.navigationLink = this.service.urlLink;
 
     const url = this.service.detailsId;
+    console.log(url);
     this.service.getDetails(url).subscribe(res => {
       console.log(res);
       this.service.detailsResponse.push(res);
