@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from './../../service/api-service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -29,19 +30,34 @@ export class DetailPageComponent implements OnInit {
   peopleName: any = [];
   homeworldName: any = [];
   residentsName: any = [];
+  url: any = [];
 
-  constructor(private service: ApiServiceService) {
+  constructor(private service: ApiServiceService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.navigationLink = this.service.urlLink;
-
-    const url = this.service.detailsId;
-    console.log(url);
-    this.service.getDetails(url).subscribe(res => {
+    this.navigationLink = this.router.url.split('/')[2];
+    if (this.navigationLink === 'films') {
+      this.url = this.service.filmUrl;
+    }
+    if (this.navigationLink === 'species') {
+      this.url = this.service.speciesUrl;
+    }
+    if (this.navigationLink === 'planets') {
+      this.url = this.service.planetsUrl;
+    }
+    if (this.navigationLink === 'starships') {
+      this.url = this.service.starshipUrl;
+    }
+    if (this.navigationLink === 'people') {
+      this.url = this.service.charUrl;
+    }
+    if (this.navigationLink === 'vehicles') {
+      this.url = this.service.vehicleUrl;
+    }
+    this.service.getDetails(this.url).subscribe(res => {
       console.log(res);
-      this.service.detailsResponse.push(res);
-      localStorage.setItem('detailsResponse', JSON.stringify(this.service.detailsResponse));
       this.data = res;
       this.characters = res.characters;
       this.people = res.people;
