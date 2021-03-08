@@ -17,7 +17,6 @@ body {
     position: relative;
     margin-left: 15%;
     border-bottom: 1px solid #1B6BA2;
-    // width: calc(100vw - 27rem);
     width: 65%;
     text-align: center;
     top: 2rem;
@@ -32,14 +31,12 @@ body {
     position: relative;
     top: 2rem;
     margin-left: 15%;
-    // width: calc(100vw - 27rem);
     width: 85%;
     height: 32rem;
 
     .list {
       height: 2.5rem;
       border-bottom: 1px solid #0E7ED0;
-      // width: calc(100vw - 27rem);
       width: 76.5%;
       display: inline-flex;
       overflow-y: hidden;
@@ -167,6 +164,13 @@ body {
   display: none;
 }
 
+@media screen and (max-width: 920px) {
+  body {
+    background-size: cover;
+    background-position-x: center;
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     background-size: cover;
@@ -178,16 +182,8 @@ body {
       .logoFooter {
         display: none;
       }
-    }
-  }
-}
 
-@media screen and (max-width: 720px) {
-  body {
-
-    .header-footer {
-
-      .lucasFilm {
+      .lucasFilm{
         top: 0;
       }
     }
@@ -205,7 +201,7 @@ body {
     background-position-x: center;
 
     .header {
-      width: 92%;
+      width: 87%;
       margin-left: 4%;
     }
 
@@ -214,7 +210,7 @@ body {
       margin: 0;
 
       .list {
-        width: 92%;
+        width: 87%;
         margin-left: 4%;
 
         .films {

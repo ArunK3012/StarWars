@@ -19,13 +19,20 @@
     .image {
       width: 50%;
       position: relative;
-      height: 80%;
+      height: 79%;
       text-align: center;
       margin: auto;
+      overflow: hidden;
 
       img {
         width: 80%;
-        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
       }
     }
 
@@ -76,38 +83,13 @@
   background-color: #00A8FF;
 }
 
-@media screen and (max-width: 920px) {
-
-  .card {
-
-    .page {
-
-      .image {
-
-        img {
-          height: 85%;
-          position: relative;
-          top: 9%;
-        }
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 768px) {
 
   .card {
 
     .page {
 
-      .image {
-
-        img {
-          height: 70%;
-          top: 17%;
-        }
-      }
-      .details{
+      .details {
         font-size: 15px;
       }
     }
@@ -129,11 +111,13 @@
 
       .image {
         width: 65%;
-        height: 50%;
+        height: 47%;
         text-align: center;
+        margin-bottom: 2%;
 
         img {
           width: 100%;
+          top: 0;
         }
       }
 

@@ -1,4 +1,4 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiServiceService } from './../../service/api-service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,6 +20,7 @@ export class DetailPageComponent implements OnInit {
   people = [];
   homeworld = [];
   residents = [];
+  pilots = [];
   navigationLink = '';
   characterName: any = [];
   filmName: any = [];
@@ -28,9 +29,11 @@ export class DetailPageComponent implements OnInit {
   starshipsName: any = [];
   vehicleName: any = [];
   peopleName: any = [];
+  pilotsName: any = [];
   homeworldName: any = [];
   residentsName: any = [];
   url: any = [];
+  details: any = [];
 
   constructor(private service: ApiServiceService,
               private router: Router) {
@@ -68,6 +71,7 @@ export class DetailPageComponent implements OnInit {
       this.residents = res.residents;
       this.starships = res.starships;
       this.vehicles = res.vehicles;
+      this.pilots = res.pilots;
       if (this.characters !== undefined) {
         for (let i = 0; i < this.characters.length; i++) {
           this.service.getName(this.characters[i]).subscribe(response => {
@@ -153,6 +157,18 @@ export class DetailPageComponent implements OnInit {
             }
             if (i === this.starships.length - 1) {
               this.starshipsName.push(response.name + '.');
+            }
+          });
+        }
+      }
+      if (this.pilots !== undefined) {
+        for (let i = 0; i < this.pilots.length; i++) {
+          this.service.getName(this.pilots[i]).subscribe(response => {
+            if (i !== this.pilots.length - 1) {
+              this.pilotsName.push(response.name + ',');
+            }
+            if (i === this.pilots.length - 1) {
+              this.pilotsName.push(response.name + '.');
             }
           });
         }

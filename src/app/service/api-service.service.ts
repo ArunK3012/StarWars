@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiServiceService {
 
   BASEURL = 'https://swapi.dev/api/';
+  BASE = 'http://swapi.dev/api/';
   urlLink: any;
   detailsId: any;
   page = 1;
@@ -22,6 +23,10 @@ export class ApiServiceService {
   planetsUrl: any = [];
   starshipUrl: any = [];
   vehicleUrl: any = [];
+  details: any = [];
+  saveDetails: any = [];
+  saveName: any = [];
+  getList: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -29,18 +34,78 @@ export class ApiServiceService {
 
     const url = (`${this.BASEURL}${data}/?page=${pageNo}`);
 
-    return this.http.get(url);
+    const page = pageNo + 1;
+    const prev = pageNo - 1;
 
+    const temp = (`${this.BASE}${data}/?page=${page}`);
+
+    const previous = (`${this.BASE}${data}/?page=${prev}`);
+
+    const list = JSON.parse(localStorage.getItem('GetResponseList') || 'null');
+    if (list !== null) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].previous === previous && list[i].next === null) {
+          return of(list[i]);
+        }
+        if (list[i].next === temp) {
+          return of(list[i]);
+        }
+        if (data === 'films') {
+          if (list[i].next === null && list[i].previous === null) {
+            return of(list[i]);
+          }
+        }
+      }
+    }
+    const item = this.http.get(url);
+    item.subscribe(name => {
+      this.getList.push(name);
+      const arrList = [].concat(this.getList);
+      localStorage.setItem('GetResponseList', JSON.stringify(arrList));
+    });
+    return item;
   }
 
   getDetails(url: string): Observable<any> {
 
-    return this.http.get(`${url}`);
+    const now = new Date();
+
+    const ttl = 300;
+
+    const details = JSON.parse(localStorage.getItem('getDetails') || 'null');
+    if (details !== null) {
+      for (let i = 0; i < details.length; i++) {
+        if (details[i].url === url) {
+          return of(details[i]);
+        }
+      }
+    }
+    const data = this.http.get(`${url}`);
+    data.subscribe(name => {
+      this.saveDetails.push(name);
+      localStorage.setItem('getDetails', JSON.stringify(this.saveDetails));
+    }
+    );
+    return data;
   }
 
-  getName(data: any): Observable<any> {
+  getName(item: any): Observable<any> {
 
-    return this.http.get(`${data}`);
+    const details = JSON.parse(localStorage.getItem('getName') || 'null');
+    if (details !== null) {
+      for (let i = 0; i < details.length; i++) {
+        if (details[i].url === item) {
+          return of(details[i]);
+        }
+      }
+    }
+    const data = this.http.get(`${item}`);
+    data.subscribe(name => {
+      this.saveName.push(name);
+      localStorage.setItem('getName', JSON.stringify(this.saveName))
+    }
+    );
+    return data;
 
   }
 }

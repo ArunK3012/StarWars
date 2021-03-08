@@ -4,10 +4,10 @@
             <img src="https://picsum.photos/300/350" alt="">
         </div>
         <div *ngIf="navigationLink === 'films'" class="details">
-            <h2 >{{data.title | uppercase}}</h2>
-            <p> <span> Director : </span>{{data.director}} </p> 
+            <h2>{{data.title | uppercase}}</h2>
+            <p> <span> Director : </span>{{data.director | uppercase}} </p> 
             <p> <span> Opening Crawl : </span>  {{data.opening_crawl}} </p> 
-            <p> <span>Producer : </span> {{data.producer}} </p> 
+            <p> <span>Producer : </span> {{data.producer | uppercase}} </p> 
             <p> <span>Release Date : </span> {{data.release_date}} </p> 
             <p> <span> Characters : </span> <span class="characterList" *ngFor = "let item of characterName">{{item}} </span> <br/> </p> 
             <p> <span>Species : </span> <span class="characterList" *ngFor = "let item of speciesName">{{item}} </span> <br/> </p> 
@@ -20,18 +20,18 @@
             <p> <span>Classification : </span> {{data.classification}}</p> 
             <p> <span>Average Height : </span> {{data.average_height}}</p> 
             <p> <span>Average Lifespan : </span> {{data.average_lifespan}} </p> 
-            <p> <span>Designation : </span> {{data.designation}} </p> 
-            <p> <span>Eye Colors : </span> {{data.eye_colors}} <br/> </p> 
-            <p> <span>Hair Colors : </span> {{data.hair_colors}} <br/> </p> 
+            <p> <span>Designation : </span> {{data.designation | uppercase}} </p> 
+            <p> <span>Eye Colors : </span> {{data.eye_colors | uppercase}} <br/> </p> 
+            <p> <span>Hair Colors : </span> {{data.hair_colors | uppercase}} <br/> </p> 
             <p> <span>Films : </span> <span class="characterList" *ngFor = "let item of filmName">{{item}} </span> <br/> </p> 
             <p> <span>Homeworld : </span> <span class="characterList">{{homeworldName}}</span> <br/></p> 
-            <p> <span>Language : </span> {{data.language}} <br/> </p> 
+            <p> <span>Language : </span> {{data.language | uppercase}} <br/> </p> 
             <p> <span>People : </span> <span class="characterList" *ngFor = "let item of peopleName">{{item}} </span> <br/></p> 
-            <p> <span>Skin Colors : </span> {{data.skin_colors}} <br/> </p>
+            <p> <span>Skin Colors : </span> {{data.skin_colors | uppercase}} <br/> </p>
         </div>
         <div *ngIf="navigationLink === 'planets'" class="details">
             <h2>{{data.name | uppercase}}</h2>
-            <p> <span>Climate : </span> {{data.climate}} </p> 
+            <p> <span>Climate : </span> {{data.climate | uppercase}} </p> 
             <p> <span>Diameter : </span> {{data.diameter}} </p> 
             <p> <span>Films : </span> <span class="characterList" *ngFor = "let item of filmName">{{item}} </span> <br/> </p> 
             <p> <span>Gravity : </span> {{data.gravity}} </p> 
@@ -45,15 +45,15 @@
         <div *ngIf="navigationLink === 'people'" class="details">
             <h2>{{data.name | uppercase}}</h2>
             <p> <span>Birth Year : </span> {{data.birth_year}}</p> 
-            <p> <span>Eye Color : </span> {{data.eye_color}} </p> 
+            <p> <span>Eye Color : </span> {{data.eye_color | uppercase}} </p> 
             <p> <span>Films : </span> <span class="characterList" *ngFor = "let item of filmName">{{item}} </span> <br/> </p> 
-            <p> <span>Gender : </span> {{data.gender}} </p> 
+            <p> <span>Gender : </span> {{data.gender | uppercase}} </p> 
             <p> <span>Height : </span> {{data.height}} <br/></p> 
-            <p> <span>Hair Colors : </span> {{data.hair_color}} <br/> </p> 
+            <p> <span>Hair Colors : </span> {{data.hair_color | uppercase}} <br/> </p> 
             <p> <span>Homeworld : </span> <span class="characterList">{{homeworldName}} </span> <br/> </p> 
             <p> <span>mass : </span> {{data.mass}} <br/></p> 
             <p> <span>Species : </span> <span class="characterList" *ngFor = "let item of speciesName">{{item}} </span> <br/> </p> 
-            <p> <span>Skin Color : </span> {{data.skin_color}} <br/></p> 
+            <p> <span>Skin Color : </span> {{data.skin_color | uppercase}} <br/></p> 
             <p> <span>Starships : </span> <span class="characterList" *ngFor = "let item of starshipsName">{{item}} </span> <br/> </p> 
             <p> <span>Vehicles : </span> <span class="characterList" *ngFor = "let item of vehicleName">{{item}} </span> <br/></p> 
         </div>
@@ -67,11 +67,11 @@
             <p> <span>Crew : </span>{{data.crew}} <br/> </p> 
             <p> <span>Hyperdrive Rating : </span> {{data.hyperdrive_rating}}</p> 
             <p> <span>Length : </span> {{data.length}} <br/> </p> 
-            <p> <span>Manufacturer : </span> {{data.manufacturer}} <br/> </p> 
+            <p> <span>Manufacturer : </span> {{data.manufacturer | uppercase}} <br/> </p> 
             <p> <span>Max Atmosphering Speed : </span> {{data.max_atmosphering_speed}} <br/></p> 
             <p> <span>Model : </span> {{data.model}} <br/> </p> 
             <p> <span>Passengers : </span> {{data.passengers}} <br/></p> 
-            <p> <span>Pilots : </span> {{data.pilots}} <br/> </p>
+            <p> <span>Pilots : </span> <span class="characterList" *ngFor = "let item of pilotsName">{{item}} </span> <br/> </p>
             <p> <span>Starship Class : </span> {{data.starship_class}} <br/> </p>
         </div>
         <div *ngIf="navigationLink === 'vehicles'" class="details">
@@ -82,7 +82,7 @@
             <p> <span>Cost in Credits : </span> {{data.cost_in_credits}} </p> 
             <p> <span> Crew : </span> {{data.crew}} <br/> </p> 
             <p> <span>Length : </span> {{data.length}} <br/> </p> 
-            <p> <span>Manufacturer : </span> {{data.manufacturer}} <br/> </p> 
+            <p> <span>Manufacturer : </span> {{data.manufacturer | uppercase}} <br/> </p> 
             <p> <span>Max Atmosphering Speed : </span> {{data.max_atmosphering_speed}} <br/></p> 
             <p> <span>Model : </span> {{data.model}} <br/> </p> 
             <p> <span>Passengers : </span> {{data.passengers}} <br/></p> 

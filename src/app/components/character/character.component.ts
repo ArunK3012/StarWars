@@ -51,7 +51,7 @@ export class CharacterComponent implements OnInit {
       this.pageNo = page;
       this.service.swapi(url, page).subscribe(res => {
         this.data = res.results;
-        this.pageCount = Math.trunc((res.count) / 10);
+        this.pageCount = Math.trunc((res.count) / 10) - 1;
       });
     }
     if (url === 'starships') {
@@ -109,11 +109,9 @@ export class CharacterComponent implements OnInit {
   getDetails(itemUrl: string): void {
     if (this.navigation === 'species') {
       this.service.speciesUrl = itemUrl;
-      localStorage.setItem('speciesUrl', itemUrl);
     }
     if (this.navigation === 'people') {
       this.service.charUrl = itemUrl;
-      localStorage.setItem('peopleUrl', itemUrl);
     }
     if (this.navigation === 'planets') {
       this.service.planetsUrl = itemUrl;
